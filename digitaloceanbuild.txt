@@ -1,0 +1,60 @@
+copy an SSH key to the DigitalOcean server
+- https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-2
+
+configure newly installed Linux server
+- https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-20-04
+- rsync --archive --chown=mdadmin:mdadmin ~/.ssh /home/mdadmin
+
+update host
+- sudo apt-get update
+- sudo apt-get upgrade
+
+install zsh - DON'T use brew
+- sudo apt-get install zsh
+- set zsh to default - chsh -s $(which zsh)
+- logout of server
+- login and verify zsh is default shell - echo $SHELL
+
+install Homebrew
+- https://brew.sh/
+- /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+Do Homebrew homework
+- Add Homebrew to your PATH in /home/mdadmin/.profile:
+    echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/mdadmin/.profile
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+- Install the Homebrew dependencies if you have sudo access:
+    sudo apt-get install build-essential
+    See https://docs.brew.sh/linux for more information
+- We recommend that you install GCC:
+    brew install gcc
+
+install oh-my-zsh
+- sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+- install 2 plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+update .zshrc w/ plug-ins entry and aliases
+source .zshrc
+
+install pip
+- https://pip.pypa.io/en/stable/installing/
+- curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+- python3 get-pip.py
+- add /home/mdadmin/.local/bin to path in .zshrc
+- 
+
+install virtualenv
+- https://docs.python-guide.org/dev/virtualenvs/#virtualenvironments-ref
+- pip install virtualenv
+- virtualenv --version
+- continue to follow instructions for a virtual environment
+
+add vim vundle module
+- https://github.com/VundleVim/Vundle.vim
+- git clone https://github.com/VundleVim/Vundle.vim.git
+
+update .vimrc w/ my favorite .vimrc
+- copy and paste
+
